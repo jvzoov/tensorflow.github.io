@@ -28,7 +28,6 @@ from tensorflow.python.data.ops import dataset_ops
 from tensorflow.python.data.ops import iterator_ops
 from tensorflow.python.data.ops import options as options_lib
 from tensorflow.python.distribute import distribute_lib
-from tensorflow.python.distribute import input_lib
 from tensorflow.python.eager import context
 from tensorflow.python.framework import dtypes
 from tensorflow.python.framework import errors
@@ -48,6 +47,7 @@ from tensorflow.python.ops import random_ops
 from tensorflow.python.ops import script_ops
 from tensorflow.python.platform import tf_logging as logging
 from tensorflow.python.types import data as data_types
+from tensorflow.python.types import distribute
 from tensorflow.python.util import nest
 
 
@@ -1693,4 +1693,4 @@ def _scipy_sparse_to_sparse_tensor(t):
 
 
 def _is_distributed_dataset(ds):
-  return isinstance(ds, input_lib.DistributedDatasetInterface)
+  return isinstance(ds, distribute.DistributedDatasetInterface)
